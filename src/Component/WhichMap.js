@@ -180,21 +180,6 @@ export default class WhichMap extends Component{
             console.log(coords.ib, 'coords');
   
             let tmpMarker = {};
-            // if (history.includes(getCoordsHash(coords))) {
-            //   console.log("중복발견");
-            //   const newMarkerImage = new window.daum.maps.MarkerImage(redDot2, imageSize, imageOption);
-              
-            //   tmpMarker = new window.daum.maps.Marker({
-            //     position: coords,
-            //     image: newMarkerImage
-            //   });
-            // } else {
-            //   history.push(getCoordsHash(coords));
-            //   tmpMarker = new window.daum.maps.Marker({
-            //     position: coords,
-            //     image: markerImage
-            //   });
-            // }
 
             if (coordsMap.get(getCoordsHash(coords)) !== undefined) {
               console.log("중복발견");
@@ -230,70 +215,7 @@ export default class WhichMap extends Component{
       console.log(history, 'history');
       console.log(coordsMap, 'coordsMap');
     });
-
-    // addressList.forEach(function(value, i) {
-    //   geocoder.addressSearch(value, function(result, status) {
-    //     if (status === window.daum.maps.services.Status.OK) {
-    //       let coords = new window.daum.maps.LatLng(result[0].y, result[0].x);
-    //       if (history.includes(coords.ib)) {
-    //         console.log('중복발견');
-    //       }
-    //       console.log(coords.ib, 'coords' + i);
-
-    //       // if (history.contains(coords.ib)) {
-    //       //   console.log("중복발견");
-    //       // }
-    //       history.push(coords.ib);
-
-    //       let tmpMarker = new window.daum.maps.Marker({
-    //         position: coords,
-    //         image: markerImage
-    //       });
-    //       tmpMarker.setMap(daumMap);
-    //     } else {
-    //       console.log(value, "실패" + i);
-    //       errorList.push(value);
-    //     }
-    //   });
-    // });
-
   }
-
-  // handleDraw() {
-  //   const { daumMap, info, geocoder, markerImage } = this.state;
-
-  //   console.log(info);
-  //   const addressList = info.split(',');
-  //   console.log(addressList, 'addressList');
-  //   const errorList = [];
-  //   // console.log(markerImage, 'image');
-  //   const history = new Array();
-  //   addressList.forEach(function(value, i) {
-  //     geocoder.addressSearch(value, function(result, status) {
-  //       if (status === window.daum.maps.services.Status.OK) {
-  //         let coords = new window.daum.maps.LatLng(result[0].y, result[0].x);
-  //         if (history.includes(coords.ib)) {
-  //           console.log('중복발견');
-  //         }
-  //         console.log(coords.ib, 'coords' + i);
-
-  //         // if (history.contains(coords.ib)) {
-  //         //   console.log("중복발견");
-  //         // }
-  //         history.push(coords.ib);
-
-  //         let tmpMarker = new window.daum.maps.Marker({
-  //           position: coords,
-  //           image: markerImage
-  //         });
-  //         tmpMarker.setMap(daumMap);
-  //       } else {
-  //         console.log(value, "실패" + i);
-  //         errorList.push(value);
-  //       }
-  //     });
-  //   });
-  // }
 
   render() {
     const mapStyle = {
@@ -321,7 +243,7 @@ export default class WhichMap extends Component{
         <div class="ui divider"></div>
         <div class="field" style={{margin: "20px 0"}}>
           <h3 style={{marginBottom: "20px"}}>주소 목록</h3>
-          <textarea onChange={this.handleInfoChange}></textarea>
+          <textarea onChange={this.handleInfoChange} style={{width: "50%", height:"100px"}}></textarea>
         </div>
         <span class="" style={{marginBottom: '50px'}}><button onClick={this.handleDrawMarker}>표시하기</button></span>
       </form>
